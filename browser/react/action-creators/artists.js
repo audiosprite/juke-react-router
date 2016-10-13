@@ -15,9 +15,9 @@ export const receiveArtist = (artist, songs, albums) => ({
   albums
 });
 
-export const fetchAndGoToArtist = artist =>
+export const fetchAndGoToArtist = artId =>
   dispatch => {
-    let artistId = `/api/artists/${artist.id}`,
+    let artistId = `/api/artists/${artId}`,
         songs = `${artistId}/songs`,
         albums = `${artistId}/albums`;
 

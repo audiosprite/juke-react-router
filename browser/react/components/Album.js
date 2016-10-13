@@ -5,37 +5,21 @@ import SongsContainer from '../containers/SongsContainer';
 
 export default class Album extends React.Component{
 
-  constructor(props){
-    super(props);
-  }
-
   componentDidMount(){
+       fetch('/api/albums/' + this.props.params.albumId)
+      .then(album => album.json())
+      .then(jsoned => this.props.getTheAlbum(jsoned));
     console.log('Album mounting');
   }
 
-  componentWillUnmount(){
-    console.log('Album unmounting')
-  }
-
   render (){
-    console.log(this.props);
-    return
-      (<div className="album">
-        <div>
-          <h3>{ selectedAlbum.name }</h3>
-          <img src={ selectedAlbum.imageUrl } className="img-thumbnail" />
-        </div>
-        <SongsContainer songs={selectedAlbum.songs} />
-      </div>)
-  }
+    console.log("John wants his album", this.props.selectedAlbum);
+    return (<div className="album">
+              <div>
+                <h3>{ this.props.selectedAlbum.name }</h3>
+                <img src={ this.props.selectedAlbum.imageUrl } className="img-thumbnail" />
+              </div>
+              <SongsContainer songs={ this.props.selectedAlbum.songs } />
+            </div>)
+    }
 } 
-
-// export default ({ selectedAlbum }) => (
-//   <div className="album">
-//     <div>
-//       <h3>{ selectedAlbum.name }</h3>
-//       <img src={ selectedAlbum.imageUrl } className="img-thumbnail" />
-//     </div>
-//     <SongsContainer songs={selectedAlbum.songs} />
-//   </div>
-// );

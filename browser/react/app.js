@@ -10,6 +10,7 @@ import { Router, Route, hashHistory, IndexRoute } from 'react-router';
 import ArtistsContainer from './containers/ArtistsContainer';
 import AlbumsContainer from './containers/AlbumsContainer';
 import AlbumContainer from './containers/AlbumContainer';
+import ArtistContainer from './containers/ArtistContainer';
 
 
 ReactDOM.render(
@@ -18,7 +19,8 @@ ReactDOM.render(
       <Route path="/" component={AppContainer}>
         <Route path="/artists" component={ArtistsContainer} />
         <Route path="/albums" component={AlbumsContainer} />
-        <Route path="/album/:albumId" component={AlbumContainer} />
+        <Route path="/albums/:albumId" component={AlbumContainer} />
+        <Route path="/artists/:artistId" component={ArtistContainer} />
         <IndexRoute component={AlbumsContainer} />
       </Route> 
     </Router>
