@@ -30883,7 +30883,6 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	// export default ({ selectedArtist, go }) => (
 	var Artist = function (_React$Component) {
 	  _inherits(Artist, _React$Component);
 	
@@ -30897,15 +30896,11 @@
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
 	      this.props.getTheArtist(this.props.params.artistId);
-	      // (this.props.params.artistId);
-	      //  fetch('/api/artists/' + this.props.params.artistId)
-	      // .then(artist =.art> artist.json())
-	      // .then(jsoned => this.props.getTheArtist(jsoned));
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      console.log("John wants his artist", this.props.selectedArtist);
+	      console.log("John wants his artist", this.props.selectedArtist.albums);
 	      return _react2.default.createElement(
 	        'div',
 	        null,
@@ -30922,7 +30917,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'row' },
-	          this.props.selectedArtist.length ? this.props.selectedArtist.albums.map(function (album) {
+	          this.props.selectedArtist.albums ? this.props.selectedArtist.albums.map(function (album) {
 	            return _react2.default.createElement(
 	              'div',
 	              { className: 'col-xs-4', key: album.id },
