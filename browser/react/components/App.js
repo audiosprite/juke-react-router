@@ -9,6 +9,8 @@ import ArtistsContainer from '../containers/ArtistsContainer';
 import ArtistContainer from '../containers/ArtistContainer';
 import PlayerContainer from '../containers/PlayerContainer';
 
+import { Router, Route, hashHistory } from 'react-router';
+
 export default class App extends Component {
 
   constructor (props) {
@@ -27,15 +29,16 @@ export default class App extends Component {
   }
 
   render () {
-    const { location } = this.props;
-
+    // const { location } = this.props;
+    console.log(this.props.children);
     return (
       <div id="main" className="container-fluid">
         <div className="col-xs-2">
           <SidebarContainer />
         </div>
         <div className="col-xs-10">
-          {
+          { this.props.children }
+          {/*
             (() => {
               switch (location) {
                 case 'albums': return <AlbumsContainer />
@@ -44,7 +47,7 @@ export default class App extends Component {
                 case 'artist': return <ArtistContainer /> 
               }
             })()
-          }
+          */}
         </div>
         <PlayerContainer />
       </div>
